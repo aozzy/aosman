@@ -41,5 +41,14 @@ window.addEventListener('resize',()=>{
   sizes.width = window.innerWidth
   sizes.height = window.innerHeight
   camera.aspect = sizes.width /sizes.height
+  camera.updateProjectionMatrix()
   renderer.setSize(sizes.width,sizes.height)
 })
+
+//* this function will make sure that its constally being animated
+const loop = () => {
+  mesh.rotation.x += 0.2
+  renderer.render(scene,camera)
+  window.requestAnimationFrame(loop)
+}
+loop()
