@@ -35,6 +35,9 @@ renderer.render(scene,camera)
 
 const controls = new OrbitControls(camera,canvas)
 controls.enableDamping = true
+controls.enablePan = false //* prevents holding right click and paning in and out and the below stops zooming
+controls.enableZoom = false
+controls.autoRotate = true //* set to true if you want the sphere to auto rotate
 
 //* Resize
 const sizes ={
@@ -52,7 +55,7 @@ window.addEventListener('resize',()=>{
 
 //* this function will make sure that its constally being animated
 const loop = () => {
-
+ controls.update()
   renderer.render(scene,camera)
   window.requestAnimationFrame(loop)
 }
