@@ -29,6 +29,7 @@ const canvas = document.getElementById('canvas')
 const renderer = new THREE.WebGLRenderer({canvas})
 
 renderer.setSize(window.innerWidth,window.innerHeight)
+renderer.setPixelRatio(2)
 renderer.render(scene,camera)
 
 //* Controls
@@ -38,6 +39,7 @@ controls.enableDamping = true
 controls.enablePan = false //* prevents holding right click and paning in and out and the below stops zooming
 controls.enableZoom = false
 controls.autoRotate = true //* set to true if you want the sphere to auto rotate
+controls.autoRotateSpeed = 5
 
 //* Resize
 const sizes ={
