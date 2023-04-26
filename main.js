@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import './style.css'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 //* Scene
 const scene = new THREE.Scene()
 //* Create the Sphere
@@ -30,6 +31,10 @@ const renderer = new THREE.WebGLRenderer({canvas})
 renderer.setSize(window.innerWidth,window.innerHeight)
 renderer.render(scene,camera)
 
+//* Controls
+
+const controls = new OrbitControls(camera,canvas)
+controls.enableDamping = true
 
 //* Resize
 const sizes ={
@@ -47,7 +52,7 @@ window.addEventListener('resize',()=>{
 
 //* this function will make sure that its constally being animated
 const loop = () => {
-  mesh.rotation.x += 0.2
+
   renderer.render(scene,camera)
   window.requestAnimationFrame(loop)
 }
