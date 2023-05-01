@@ -92,5 +92,5 @@ const loop = () => {
   renderer.render(scene,camera)
   window.requestAnimationFrame(loop)
 }
-document.body.onscroll = moveCamera;
+// document.body.onscroll = moveCamera;
 loop()
