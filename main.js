@@ -72,7 +72,7 @@ window.addEventListener('resize',()=>{
 const tl = gsap.timeline({defaults:{duration:1}})
 tl.fromTo(mesh.scale,{z:0,x:0,y:0},{z:1,x:1,y:1})
 tl.fromTo('h1',{y:'-100%'},{y:'0%'})
-
+console.log(tl);
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
@@ -92,5 +92,5 @@ const loop = () => {
   renderer.render(scene,camera)
   window.requestAnimationFrame(loop)
 }
-// document.body.onscroll = moveCamera;
+document.body.onscroll = moveCamera;
 loop()
